@@ -1,6 +1,6 @@
-# Sistema Inteligente de Monitoramento Ambiental para o Futuro do Trabalho
+# Sistema Inteligente de Monitoramento de ambiente trabalhista
 
-Este projeto implementa um sistema de monitoramento ambiental baseado em ESP32 com sensores de temperatura, umidade, luminosidade e qualidade do ar.  
+Este projeto implementa um sistema de monitoramento de ambiente trabalhista baseado em ESP32 com sensores de temperatura, umidade, luminosidade e qualidade do ar.  
 A solução foi desenvolvida para o tema **Futuro do Trabalho**, onde ambientes conectados e inteligentes são essenciais para garantir o bem-estar, segurança e produtividade do trabalhador moderno.
 
 O sistema coleta dados em tempo real e envia automaticamente para a plataforma ThingSpeak através de **HTTP Requests**, permitindo a visualização dinâmica dos valores e possibilitando tomadas de decisão mais eficientes.
@@ -9,9 +9,9 @@ O sistema coleta dados em tempo real e envia automaticamente para a plataforma T
 
 ## Equipe
 
-- Pedro Marchese – RM 563339  
-- Jonas Esteves – RM 564143  
-- Augusto Valerio – RM 562185  
+[- Pedro Marchese – RM 563339](https://github.com/PedroMarchese01)
+[- Jonas Esteves – RM 564143](https://github.com/Augusto-Valerio)  
+[- Augusto Valerio – RM 562185](https://github.com/Augusto-Valerio)
 
 ---
 
