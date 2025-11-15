@@ -85,7 +85,7 @@ O circuito é simples, de baixo custo e fácil implementação, podendo ser util
 
 # 5. Imagens do Circuito
 
-![imagem-esp32-montado](esp32.png)
+![imagem-esp32-montado](./images/esp32.png)
 
 
 # 6. Dependências
