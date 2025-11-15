@@ -11,7 +11,7 @@ O sistema coleta dados em tempo real e envia automaticamente para a plataforma T
 
 ->[Pedro Marchese – RM 563339](https://github.com/PedroMarchese01)
 
-->[Jonas Esteves – RM 564143](https://github.com/Augusto-Valerio)  
+->[Jonas Esteves – RM 564143](https://github.com/Jonas-Franca)  
 
 ->[Augusto Valerio – RM 562185](https://github.com/Augusto-Valerio)
 
