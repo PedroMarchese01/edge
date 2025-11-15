@@ -1,102 +1,262 @@
-# Projeto de Monitoramento de Ambientes Inteligentes para o Futuro do Trabalho
+# Sistema Inteligente de Monitoramento Ambiental para o Futuro do Trabalho
 
-Este projeto foi desenvolvido com foco no tema Futuro do Trabalho, onde ambientes de trabalho conectados, inteligentes e seguros se tornam essenciais.  
-A solução monitora condições ambientais em tempo real para garantir que o trabalhador esteja em um espaço adequado, confortável e seguro, aumentando produtividade e bem-estar.
+Este projeto implementa um sistema de monitoramento ambiental baseado em ESP32 com sensores de temperatura, umidade, luminosidade e qualidade do ar.  
+A solução foi desenvolvida para o tema **Futuro do Trabalho**, onde ambientes conectados e inteligentes são essenciais para garantir o bem-estar, segurança e produtividade do trabalhador moderno.
 
-O sistema utiliza um ESP32 integrado com sensores de temperatura, umidade, luminosidade e qualidade do ar. Todos os dados são analisados e enviados automaticamente para o ThingSpeak para visualização.
+O sistema coleta dados em tempo real e envia automaticamente para a plataforma ThingSpeak através de **HTTP Requests**, permitindo a visualização dinâmica dos valores e possibilitando tomadas de decisão mais eficientes.
 
-Desenvolvido por:
+---
+
+## Equipe
+
 - Pedro Marchese – RM 563339  
 - Jonas Esteves – RM 564143  
 - Augusto Valerio – RM 562185  
 
 ---
 
-## Objetivo do Projeto
+# 1. Descrição do Problema
 
-Criar um ambiente de trabalho inteligente capaz de:
-- Monitorar continuamente condições ambientais.
-- Gerar dados em tempo real sobre conforto térmico, umidade, iluminação e qualidade do ar.
-- Auxiliar empresas a promover ambientes saudáveis e adequados para o trabalhador.
-- Conectar o ambiente físico ao digital, alinhado às tendências do futuro do trabalho.
+Ambientes de trabalho pouco monitorados podem apresentar:
+- Temperaturas inadequadas
+- Iluminação insuficiente
+- Baixa qualidade do ar
+- Umidade fora dos padrões recomendados
 
----
+Essas condições afetam diretamente:
+- Conforto
+- Produtividade
+- Saúde ocupacional
+- Eficiência no ambiente profissional
 
-## Funcionalidades
-
-- Leitura e análise de temperatura, umidade, luz e qualidade do ar.
-- Envio automático e contínuo para o ThingSpeak.
-- Feedback instantâneo no Serial Monitor explicando cada condição detectada.
-- LED sensor para alerta em caso de má qualidade do ar.
-- Sistema resiliente com reconexão automática ao Wi-Fi.
+No contexto do futuro do trabalho, é fundamental que empresas adotem sistemas automatizados capazes de acompanhar e ajustar o ambiente conforme a necessidade do trabalhador.
 
 ---
 
-## Tecnologias Utilizadas
+# 2. Descrição da Solução
 
-- ESP32  
-- DHT11  
-- MQ-135  
-- LDR  
-- ThingSpeak  
-- Wokwi  
-- Bibliotecas: WiFi.h, HTTPClient.h, DHT.h  
+A solução proposta consiste em um sistema embarcado que:
+
+1. Coleta continuamente dados ambientais.
+2. Analisa esses dados localmente no ESP32.
+3. Detecta condições inadequadas (calor, frio, ar ruim, baixa luz, etc.).
+4. Ativa alertas (por LED) quando necessário.
+5. Envia os dados para o ThingSpeak utilizando **HTTP GET**, criando dashboards automáticos.
+6. Permite inspeção em tempo real via Serial Monitor.
+
+O circuito é simples, de baixo custo e fácil implementação, podendo ser utilizado em:
+- Escritórios inteligentes  
+- Indústrias  
+- Coworkings  
+- Estações de trabalho remotas  
 
 ---
+
+# 3. Funcionalidades
+
+- Monitoramento de:
+  - Temperatura
+  - Humidade
+  - Luminosidade
+  - Qualidade do ar (MQ-135)
+- Avisos no Serial Monitor
+- LED de alerta para ar poluído
+- Reconexão automática ao Wi-Fi
+- Envio contínuo de dados ao ThingSpeak
+- Totalmente compatível com simulação via Wokwi
+
+---
+
+# 4. Demonstração do Projeto
+
+## Video no youtube
+
+[**Ver o projeto**](https://youtu.be/7-To5KGpaWI?si=6a2ku_wCqJYkHzjP)
 
 ## Simulação no Wokwi
 
-Para visualizar e testar o projeto diretamente no navegador:
-
-[**Acessar Wokwi**](https://wokwi.com/projects/447467534654824449)
-
----
+[**Acessar o Projeto no Wokwi**](https://wokwi.com/projects/447467534654824449)
 
 ## Dashboard no ThingSpeak
-
-Visualize os dados sendo enviados em tempo real no painel:
 
 [**Acessar Canal ThingSpeak**](https://thingspeak.mathworks.com/channels/3163643)
 
 ---
 
-## Como Funciona
+# 5. Imagens do Circuito
 
-O sistema realiza:
-1. Conexão automática ao Wi-Fi Wokwi-GUEST.  
-2. Coleta contínua dos sensores:  
-   - Temperatura  
-   - Umidade  
-   - Qualidade do ar (gases)  
-   - Luminosidade  
-3. Análises automáticas com mensagens interpretativas.  
-4. Avisos sobre ambiente inadequado (frio, quente, úmido, seco, escuro, iluminado demais, ar ruim).  
-5. Envio para o ThingSpeak a cada 20 segundos.  
-6. Indicação luminosa caso a qualidade do ar esteja fora do ideal.
+![imagem-esp32-montado](esp32.png)
 
----
 
-## Estrutura do Hardware
+# 6. Dependências
 
-- ESP32 DevKit V1  
-- DHT11 → pino 15  
-- MQ-135 → pino 34  
-- LDR → pino 35  
-- LED → pino 2  
+O projeto requer as seguintes bibliotecas:
 
-Toda estrutura pode ser visualizada no Wokwi.
+- WiFi.h  
+- HTTPClient.h  
+- DHT.h  
+
+Hardware utilizado:
+- ESP32 DevKit  
+- Sensor DHT11  
+- Sensor MQ-135  
+- LDR  
+- LED  
 
 ---
 
-## Como Executar
+# 7. Instruções de Uso
 
-1. Abra o projeto no Wokwi.  
-2. Clique em Run.  
-3. Abra o Serial Monitor para acompanhar análises.  
-4. Acesse o canal no ThingSpeak para visualizar os gráficos.  
+1. Clone este repositório:  
+
+2. Abra o arquivo principal `.ino` no Arduino IDE.
+
+3. Instale as bibliotecas necessárias.
+
+4. Conecte o ESP32 ao computador.
+
+5. Compile e envie o código.
+
+6. Abra o Monitor Serial para acompanhar as leituras.
+
+7. Para testar sem hardware, utilize o link do Wokwi.
 
 ---
 
-## Intervalo de Envio
+# 8. Explicação dos Endpoints HTTP
 
-Os dados são enviados a cada 20 segundos, respeitando os limites do ThingSpeak.
+O envio para o ThingSpeak é feito através do seguinte endpoint: http://api.thingspeak.com/update?api_key=SUA_API_KEY&field1=TEMP&field2=UMIDADE&field3=AR&field4=LUZ
+
+Parâmetros utilizados:
+
+| Campo | Descrição |
+|-------|-----------|
+| api_key | Chave única do canal ThingSpeak |
+| field1 | Temperatura |
+| field2 | Umidade |
+| field3 | Qualidade do ar |
+| field4 | Luminosidade |
+
+Tipo da requisição:  
+**GET**
+
+Exemplo utilizado no código:
+
+```cpp
+String url = String(server) + "?api_key=" + apiKey +
+             "&field1=" + String(temperatura) +
+             "&field2=" + String(umidade) +
+             "&field3=" + String(qualidadeAr) +
+             "&field4=" + String(luz);
+
+http.begin(url);
+http.GET();
+
+## 9. Arquivos-Fonte
+
+O repositório deve conter os seguintes arquivos essenciais para o funcionamento completo do projeto:
+
+### 📌 **main.ino**
+Arquivo principal do sistema embarcado.  
+Contém toda a lógica do ESP32, incluindo:
+- Conexão Wi-Fi  
+- Leitura de sensores (DHT11, MQ-135, LDR)  
+- Envio de dados (MQTT e/ou HTTP)  
+- Controle de LEDs  
+- Funções auxiliares  
+- Estrutura completa e **comentada linha por linha**
+
+### 📌 **Código totalmente comentado**
+Todo o código deve explicar claramente:
+- O propósito de cada variável  
+- Como cada sensor funciona  
+- Por que cada etapa do fluxo existe  
+- Como os dados são enviados  
+- Relação entre o dispositivo e o conceito de **futuro do trabalho**  
+
+Exemplo de estrutura comentada:
+
+```cpp
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include "DHT.h"
+
+// --- PINOS ---
+#define DHTPIN 15       // Sensor de temperatura/umidade
+#define MQ135_PIN 34    // Qualidade do ar
+#define LDR_PIN 35      // Luminosidade
+#define LED_PIN 2       // LED indicador
+
+// --- CONFIG DHT ---
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+
+// --- WIFI ---
+const char* ssid = "Wokwi-GUEST";  
+const char* password = "";
+
+// --- THINGSPEAK ---
+String apiKey = "M7PW9C6NLUIRKOD7";
+String server = "http://api.thingspeak.com/update";
+
+void setup() {
+  Serial.begin(115200);
+
+  // Inicializa sensores
+  dht.begin();
+  pinMode(LED_PIN, OUTPUT);
+
+  // Conecta ao Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Conectando ao WiFi...");
+  }
+  Serial.println("Conectado!");
+}
+
+void loop() {
+  float temperatura = dht.readTemperature();
+  float umidade = dht.readHumidity();
+  int qualidadeAr = analogRead(MQ135_PIN);
+  int luz = analogRead(LDR_PIN);
+
+  // Exibe dados no Serial Monitor
+  Serial.println("Temperatura: " + String(temperatura));
+  Serial.println("Umidade: " + String(umidade));
+  Serial.println("Qualidade do Ar: " + String(qualidadeAr));
+  Serial.println("Luz: " + String(luz));
+
+  // Envio via HTTP
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = server + "?api_key=" + apiKey +
+                 "&field1=" + temperatura +
+                 "&field2=" + umidade +
+                 "&field3=" + qualidadeAr +
+                 "&field4=" + luz;
+
+    http.begin(url);
+    int httpCode = http.GET();
+    http.end();
+  }
+
+  delay(15000); // padrão ThingSpeak
+}
+```
+
+## 10. Conclusão
+
+Este projeto demonstra como sistemas embarcados podem contribuir diretamente para o futuro do trabalho, permitindo a criação de ambientes mais inteligentes, seguros e conectados.  
+Por meio do monitoramento contínuo de temperatura, umidade, luminosidade e qualidade do ar, é possível garantir condições adequadas para o bem-estar e desempenho do trabalhador.
+
+A integração entre sensores, conectividade Wi-Fi e plataformas em nuvem (como o ThingSpeak) torna possível:
+
+- Acompanhamento em tempo real das variáveis ambientais  
+- Adoção de ações preventivas e corretivas no ambiente de trabalho  
+- Redução de riscos e melhoria da qualidade de vida  
+- Automatização de processos de controle ambiental  
+- Suporte a decisões baseadas em dados  
+- Criação de espaços inteligentes alinhados às novas demandas do futuro do trabalho  
+
+Assim, este sistema evidencia como soluções IoT podem transformar o ambiente corporativo, promovendo eficiência, segurança e inovação.
